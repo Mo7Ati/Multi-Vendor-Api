@@ -31,11 +31,11 @@ class DatabaseSeeder extends Seeder
         //     'password' => Hash::make('password'),
         // ]);
 
-        // Admin::create([
-        //     'name' => 'Admin',
-        //     'email' => 'admin@ps.com',
-        //     'password' => 'password',
-        // ]);
+        Admin::create([
+            'name' => 'Admin',
+            'email' => 'admin@ps.com',
+            'password' => 'password',
+        ]);
 
         // StoreCategory::create([
         //     'name' => [
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
 
         // Store::factory()->count(100)->create();
         // Product::factory()->count(50)->create();
-        Admin::factory()->count(100)->create();
+        // Admin::factory()->count(100)->create();
 
         $this->call([
             // CustomerSeeder::class,
