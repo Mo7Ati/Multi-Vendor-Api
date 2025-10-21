@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Api\Dashboards\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\Admin\AdminRequest;
 use App\Http\Resources\stores\AdminResource;
 use App\Models\Admin;
-use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Hash;
 use Throwable;
 
 class AdminController extends Controller
@@ -27,7 +26,7 @@ class AdminController extends Controller
         if (array_key_exists('is_active', $data)) {
             $query->where('is_active', filter_var($data['is_active'], FILTER_VALIDATE_BOOLEAN));
         }
-        
+
         if (isset($data['search'])) {
             $query->whereLike('name', '%' . $data['search'] . '%')
                 ->orWhereLike('email', '%' . $data['search'] . '%');
@@ -40,15 +39,17 @@ class AdminController extends Controller
             $result->through(fn($admin) => new AdminResource($admin))
         );
     }
-
-    public function store(Request $request)
+    public function show(string $id)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'password' => 'required',
-            'roles' => 'nullable|array',
-        ]);
+        return $this->successResponse(
+            __('fetched successfully'),
+            AdminResource::make(Admin::with('roles')->findOrFail($id)),
+            200
+        );
+    }
+    public function store(AdminRequest $request)
+    {
+        $data = $request->validated();
 
         DB::beginTransaction();
         try {
@@ -66,23 +67,15 @@ class AdminController extends Controller
             throw $e;
         }
 
-        return $admin->load('roles');
+        return $this->successResponse(
+            __('created successfully'),
+            new AdminResource($admin->load('roles')),
+            201
+        );
     }
-
-    public function show(string $id)
+    public function update(AdminRequest $request, Admin $admin)
     {
-        return AdminResource::make(Admin::with('roles')->findOrFail($id));
-    }
-
-    public function update(Request $request, Admin $admin)
-    {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'password' => 'nullable',
-            'roles' => 'nullable|array',
-        ]);
-
+        $data = $request->validated();
 
         $admin->update($data);
 
@@ -90,16 +83,19 @@ class AdminController extends Controller
             $admin->syncRoles($data['roles']);
         }
 
-        return $admin->load('roles');
-
+        return $this->successResponse(
+            __('updated successfully'),
+            new AdminResource($admin->load('roles')),
+            200
+        );
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Admin $admin)
     {
-        Gate::authorize('delete-admins');
         $admin->delete();
+        return $this->successResponse(
+            __('deleted successfully'),
+            [],
+            200
+        );
     }
 }

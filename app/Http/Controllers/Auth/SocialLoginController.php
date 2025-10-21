@@ -33,7 +33,7 @@ class SocialLoginController extends Controller
                 'password' => Hash::make(Str::random(5)),
                 'provider' => $provider,
                 'provider_id' => $provider_user->getId(),
-                'provider_token' => $provider_user->token,
+                // 'provider_token' => $provider_user->token,
             ]);
         }
 

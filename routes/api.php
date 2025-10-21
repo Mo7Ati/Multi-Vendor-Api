@@ -1,19 +1,18 @@
 <?php
 
-use App\Http\Controllers\Dashboard\OrdersController;
-use App\Http\Controllers\Dashboard\PermissionsController;
-use App\Http\Controllers\Dashboard\StoreCategoryController;
-use App\Http\Controllers\Dashboard\UploadController;
+use App\Http\Controllers\Api\Dashboards\Admin\OrdersController;
+use App\Http\Controllers\Api\Dashboards\Admin\PermissionsController;
+use App\Http\Controllers\Api\Dashboards\Admin\StoreCategoryController;
+use App\Http\Controllers\Api\Dashboards\Admin\UploadController;
 use App\Http\Resources\stores\StoreResource;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\AdminController;
-use App\Http\Controllers\Dashboard\CategoriesController;
-use App\Http\Controllers\Dashboard\ProductController;
-use App\Http\Controllers\Dashboard\RoleController;
-use App\Http\Controllers\Dashboard\StoreController;
-use App\Http\Controllers\Dashboard\UserController;
-use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Api\Dashboards\Admin\AdminController;
+use App\Http\Controllers\Api\Dashboards\Admin\CategoriesController;
+use App\Http\Controllers\Api\Dashboards\Admin\ProductController;
+use App\Http\Controllers\Api\Dashboards\Admin\RoleController;
+use App\Http\Controllers\Api\Dashboards\Admin\StoreController;
+use App\Http\Controllers\Api\Dashboards\Admin\UserController;
+use App\Http\Controllers\Api\Dashboards\Admin\DashboardController;
 
 
 Route::get('/admin', function () {
@@ -28,7 +27,7 @@ Route::get('/store', function () {
 });
 
 
-
+// Admin Dashboard Routes
 Route::group([
     'middleware' => 'auth:admin',
     'prefix' => 'admin/dashboard',
@@ -43,8 +42,6 @@ Route::group([
     ]);
 
     Route::get('/stats', [DashboardController::class, 'index'])->name('dashboard.stats');
-
-
     Route::get('permissions', [PermissionsController::class, 'index'])->name('permissions.index');
     Route::get('products', [ProductController::class, 'index'])->name('products.index');
     Route::get('orders', [OrdersController::class, 'index'])->name('orders.index');
@@ -55,6 +52,10 @@ Route::group([
     Route::post('load', [UploadController::class, 'load']);
     Route::delete('remove', [UploadController::class, 'remove']);
 });
+
+
+
+
 
 // Store Dashboard Routes
 Route::group([

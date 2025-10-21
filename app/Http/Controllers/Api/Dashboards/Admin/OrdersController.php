@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Api\Dashboards\Admin;
 
 use App\Enums\OrderStatusEnum;
 use App\Enums\PaymentStatusEnum;
@@ -29,7 +29,7 @@ class OrdersController extends Controller
         if (isset($data['status'])) {
             $query->where('status', $data['status']);
         }
-        
+
         if (isset($data['payment_status'])) {
             $query->where('payment_status', $data['payment_status']);
         }
