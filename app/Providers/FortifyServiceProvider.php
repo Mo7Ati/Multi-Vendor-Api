@@ -21,16 +21,16 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $request = request();
-        if ($request->is(["admin", "admin/*"])) {
-            Config::set('fortify.guard', "admin");
-            Config::set('fortify.prefix', "admin/");
-        } else if ($request->is(["store", "store/*"])) {
-            Config::set('fortify.guard', "store");
-            Config::set('fortify.prefix', "store/");
-        } else {
-            Fortify::viewPrefix('front.auth.');
-        }
+        // $request = request();
+        // if ($request->is(["admin", "admin/*"])) {
+        //     Config::set('fortify.guard', "admin");
+        //     Config::set('fortify.prefix', "admin/");
+        // } else if ($request->is(["store", "store/*"])) {
+        //     Config::set('fortify.guard', "store");
+        //     Config::set('fortify.prefix', "store/");
+        // } else {
+        //     Fortify::viewPrefix('front.auth.');
+        // }
     }
 
     /**

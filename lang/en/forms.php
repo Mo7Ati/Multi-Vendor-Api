@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'common' => [
+        'personal_information' => 'Personal Information',
+        'name' => 'Name',
+        'email' => 'Email',
+        'password' => 'Password',
+        'is_active' => 'Active',
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+        'all' => 'All',
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
+    ],
+
+    'store' => [
+        'basic_information' => 'Basic Information',
+        'name' => 'Store Name',
+        'email' => 'Store Email',
+        'phone' => 'Phone Number',
+        'password' => 'Password',
+        'location' => 'Location',
+        'address' => 'Address',
+        'delivery_time' => 'Delivery Time',
+        'category' => 'Category',
+        'description' => 'Description',
+        'keywords' => 'Keywords',
+        'social_media' => 'Social Media',
+        'platform' => 'Platform',
+        'url' => 'URL',
+        'add_social_media' => 'Add Social Media',
+        'media' => 'Media',
+        'logo' => 'Logo',
+        'banner' => 'Banner',
+        'status' => 'Status',
+        'is_active' => 'Active',
+        'rate' => 'Rating',
+        'products_count' => 'Products Count',
+        'high_rated' => 'High Rated',
+        'low_rated' => 'Low Rated',
+    ],
+
+    'store_category' => [
+        'basic_information' => 'Basic Information',
+        'name' => 'Category Name',
+        'description' => 'Description',
+        'stores_count' => 'Stores Count',
+    ],
+];

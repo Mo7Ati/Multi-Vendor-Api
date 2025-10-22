@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'common' => [
+        'personal_information' => 'المعلومات الشخصية',
+        'name' => 'الاسم',
+        'email' => 'البريد الإلكتروني',
+        'password' => 'كلمة المرور',
+        'is_active' => 'الحالة',
+        'active' => 'نشط',
+        'inactive' => 'غير نشط',
+        'all' => 'الكل',
+        'created_at' => 'تاريخ الإنشاء',
+        'updated_at' => 'تاريخ التحديث',
+    ],
+
+    'store' => [
+        'basic_information' => 'المعلومات الأساسية',
+        'name' => 'اسم المتجر',
+        'email' => 'بريد المتجر الإلكتروني',
+        'phone' => 'رقم الهاتف',
+        'password' => 'كلمة المرور',
+        'location' => 'الموقع',
+        'address' => 'العنوان',
+        'delivery_time' => 'وقت التوصيل',
+        'category' => 'الفئة',
+        'description' => 'الوصف',
+        'keywords' => 'الكلمات المفتاحية',
+        'social_media' => 'وسائل التواصل الاجتماعي',
+        'platform' => 'المنصة',
+        'url' => 'الرابط',
+        'add_social_media' => 'إضافة وسيلة تواصل اجتماعي',
+        'media' => 'الوسائط',
+        'logo' => 'الشعار',
+        'banner' => 'اللافتة',
+        'status' => 'الحالة',
+        'is_active' => 'نشط',
+        'rate' => 'التقييم',
+        'products_count' => 'عدد المنتجات',
+        'high_rated' => 'تقييم عالي',
+        'low_rated' => 'تقييم منخفض',
+    ],
+
+    'store_category' => [
+        'basic_information' => 'المعلومات الأساسية',
+        'name' => 'اسم الفئة',
+        'description' => 'الوصف',
+        'stores_count' => 'عدد المتاجر',
+    ],
+];

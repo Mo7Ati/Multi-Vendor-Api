@@ -11,7 +11,6 @@ use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
-use Illuminate\Database\Eloquent\Attributes\Scope;
 
 class Store extends Authenticatable implements HasMedia
 {

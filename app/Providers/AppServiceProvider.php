@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositries\Cart\CartModelRepository;
 use App\Repositries\Cart\CartRepository;
+use BezhanSalleh\LanguageSwitch\LanguageSwitch;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
@@ -29,5 +30,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         JsonResource::withoutWrapping();
+
+        LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
+            $switch->locales(['ar', 'en']); 
+        });
     }
 }

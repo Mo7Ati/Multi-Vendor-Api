@@ -22,6 +22,11 @@ class StoreCategory extends Model
 
     public array $translatable = ['name', 'description'];
 
+    public function stores()
+    {
+        return $this->hasMany(Store::class, 'category_id', 'id');
+    }
+
     public function toSearchableArray()
     {
         return [
