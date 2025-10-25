@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
 use App\Repositries\Cart\CartModelRepository;
 use App\Repositries\Cart\CartRepository;
 use BezhanSalleh\LanguageSwitch\LanguageSwitch;
@@ -32,7 +33,19 @@ class AppServiceProvider extends ServiceProvider
         JsonResource::withoutWrapping();
 
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
-            $switch->locales(['ar', 'en']); 
+            $switch->locales(['ar', 'en']);
+        });
+
+
+        TranslatableTabs::configureUsing(function (TranslatableTabs $component) {
+            $component
+                // locales labels
+                ->localesLabels([
+                    'ar' => __('general.locales.ar'),
+                    'en' => __('general.locales.en')
+                ])
+                // default locales
+                ->locales(['ar', 'en']);
         });
     }
 }

@@ -16,4 +16,8 @@ return [
         'store' => 'Store',
         'stores' => 'Stores',
     ],
+    'locales' => [
+        'ar' => 'Arabic',
+        'en' => 'English',
+    ],
 ];

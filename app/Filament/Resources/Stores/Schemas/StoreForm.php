@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Stores\Schemas;
 
 use App\Models\StoreCategory;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\KeyValue;
@@ -26,16 +27,16 @@ class StoreForm
                                 ->label(__('forms.store.name'))
                                 ->required()
                                 ->maxLength(255)
-                                ->translatable(),
+                                ->translatableTabs(),
 
                             Textarea::make('description')
                                 ->label(__('forms.store.description'))
                                 ->rows(4)
-                                ->translatable(),
+                                ->translatableTabs(),
 
                             TextInput::make('address')
                                 ->label(__('forms.store.address'))
-                                ->translatable(),
+                                ->translatableTabs(),
                         ]),
                 ]),
 
@@ -96,17 +97,10 @@ class StoreForm
 
                 Section::make(__('forms.store.media'))
                     ->schema([
-                        FileUpload::make('logo')
+                        SpatieMediaLibraryFileUpload::make('logo')
+                            ->collection('stores-logo')
                             ->label(__('forms.store.logo'))
-                            ->image()
-                            ->directory('stores/logos')
-                            ->visibility('public'),
-
-                        // FileUpload::make('banner')
-                        //     ->label(__('forms.store.banner'))
-                        //     ->image()
-                        //     ->directory('stores/banners')
-                        //     ->visibility('public'),
+                            ->image(),
                     ])->columnSpanFull(),
             ]);
     }

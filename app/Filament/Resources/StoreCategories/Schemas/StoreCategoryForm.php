@@ -21,12 +21,12 @@ class StoreCategoryForm
                                 ->label(__('forms.store_category.name'))
                                 ->required()
                                 ->maxLength(255)
-                                ->translatable(),
+                                ->translatableTabs(),
 
                             Textarea::make('description')
                                 ->label(__('forms.store_category.description'))
                                 ->rows(4)
-                                ->translatable(),
+                                ->translatableTabs(),
                         ]),
                 ])->columnSpanFull(),
             ]);

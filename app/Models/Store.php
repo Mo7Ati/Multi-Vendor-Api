@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Str;
-use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
 
 class Store extends Authenticatable implements HasMedia
 {
-    use HasFactory, HasTranslations, InteractsWithMedia, Searchable;
+    use HasFactory, HasTranslations, InteractsWithMedia;
 
     protected $fillable = [
         'name',
@@ -51,12 +50,4 @@ class Store extends Authenticatable implements HasMedia
         return $this->belongsTo(StoreCategory::class);
     }
 
-    public function toSearchableArray()
-    {
-        return [
-            'name' => $this->name,
-            'email' => $this->email,
-            'address' => $this->address,
-        ];
-    }
 }

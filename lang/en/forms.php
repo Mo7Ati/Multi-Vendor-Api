@@ -37,8 +37,9 @@ return [
         'is_active' => 'Active',
         'rate' => 'Rating',
         'products_count' => 'Products Count',
-        'high_rated' => 'High Rated',
-        'low_rated' => 'Low Rated',
+        'category_and_contact_information' => 'Category and Contact Information',
+        'credentials' => 'Credentials',
+        'settings' => 'Settings',
     ],
 
     'store_category' => [

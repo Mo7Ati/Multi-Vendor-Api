@@ -3,24 +3,26 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "abdulmajeed-jamaan/filament-translatable-tabs": "^4.0",
         "bezhansalleh/filament-language-switch": "^4.0",
+        "bezhansalleh/filament-shield": "^4.0",
         "filament/filament": "~4.0",
+        "filament/spatie-laravel-media-library-plugin": "*",
         "laravel/fortify": "^1.25",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
-        "laravel/scout": "^10.16",
         "laravel/socialite": "^5.21",
         "laravel/tinker": "^2.10.1",
         "mbezhanov/faker-provider-collection": "^2.0",
-        "outerweb/filament-translatable-fields": "^3.0",
-        "spatie/laravel-json-api-paginate": "^1.16",
-        "spatie/laravel-medialibrary": "^11.13",
-        "spatie/laravel-permission": "^6.20",
-        "spatie/laravel-settings": "^3.4",
+        "spatie/laravel-medialibrary": "^11.17",
+        "spatie/laravel-permission": "^6.21",
         "spatie/laravel-translatable": "^6.11"
     },
     "require-dev": {

@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 use Spatie\Translatable\HasTranslations;
 
 class StoreCategory extends Model
 {
-    use HasTranslations, Searchable, HasFactory;
+    use HasTranslations, HasFactory;
     protected $fillable = [
         'name',
         'description',
@@ -27,11 +26,4 @@ class StoreCategory extends Model
         return $this->hasMany(Store::class, 'category_id', 'id');
     }
 
-    public function toSearchableArray()
-    {
-        return [
-            'name' => $this->name,
-            'description' => $this->description,
-        ];
-    }
 }

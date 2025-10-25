@@ -39,6 +39,9 @@ return [
         'products_count' => 'عدد المنتجات',
         'high_rated' => 'تقييم عالي',
         'low_rated' => 'تقييم منخفض',
+        'category_and_contact_information' => 'الفئة والمعلومات الاتصالية',
+        'credentials' => 'معلومات الوصول ',
+        'settings' => 'إعدادات المتجر',
     ],
 
     'store_category' => [
