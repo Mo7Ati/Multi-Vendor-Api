@@ -12,6 +12,7 @@ return [
         'all' => 'All',
         'created_at' => 'Created At',
         'updated_at' => 'Updated At',
+        'id' => 'ID',
     ],
 
     'store' => [
@@ -47,5 +48,54 @@ return [
         'name' => 'Category Name',
         'description' => 'Description',
         'stores_count' => 'Stores Count',
+    ],
+
+    'order' => [
+        'customer' => 'Customer',
+        'store' => 'Store',
+        'status' => 'Status',
+        'payment_status' => 'Payment Status',
+        'total_amount' => 'Total Amount',
+        'delivery_amount' => 'Delivery Amount',
+        'statuses' => [
+            'pending' => 'Pending',
+            'processing' => 'Processing',
+            'shipped' => 'Shipped',
+            'delivered' => 'Delivered',
+            'cancelled' => 'Cancelled',
+        ],
+        'payment_statuses' => [
+            'pending' => 'Pending',
+            'paid' => 'Paid',
+            'failed' => 'Failed',
+            'refunded' => 'Refunded',
+        ],
+    ],
+
+    'product' => [
+        'name' => 'Product Name',
+        'description' => 'Description',
+        'image' => 'Image',
+        'store' => 'Store',
+        'category' => 'Category',
+        'price' => 'Price',
+        'compare_price' => 'Compare Price',
+        'quantity' => 'Quantity',
+        'is_active' => 'Active',
+        'is_accepted' => 'Accepted',
+        'accepted' => 'Accepted',
+        'pending' => 'Pending',
+    ],
+
+    'customer' => [
+        'name' => 'Customer Name',
+        'mobile' => 'Mobile',
+        'is_active' => 'Active',
+        'mobile_verified' => 'Mobile Verified',
+        'mobile_type' => 'Mobile Type',
+        'timezone' => 'Timezone',
+        'last_seen_at' => 'Last Seen',
+        'verified' => 'Verified',
+        'unverified' => 'Unverified',
     ],
 ];

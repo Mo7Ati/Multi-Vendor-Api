@@ -12,6 +12,7 @@ return [
         'all' => 'الكل',
         'created_at' => 'تاريخ الإنشاء',
         'updated_at' => 'تاريخ التحديث',
+        'id' => 'المعرف',
     ],
 
     'store' => [
@@ -49,5 +50,54 @@ return [
         'name' => 'اسم الفئة',
         'description' => 'الوصف',
         'stores_count' => 'عدد المتاجر',
+    ],
+
+    'order' => [
+        'customer' => 'العميل',
+        'store' => 'المتجر',
+        'status' => 'الحالة',
+        'payment_status' => 'حالة الدفع',
+        'total_amount' => 'المبلغ الإجمالي',
+        'delivery_amount' => 'رسوم التوصيل',
+        'statuses' => [
+            'pending' => 'في الانتظار',
+            'processing' => 'قيد المعالجة',
+            'shipped' => 'تم الشحن',
+            'delivered' => 'تم التسليم',
+            'cancelled' => 'ملغي',
+        ],
+        'payment_statuses' => [
+            'pending' => 'في الانتظار',
+            'paid' => 'مدفوع',
+            'failed' => 'فشل',
+            'refunded' => 'مسترد',
+        ],
+    ],
+
+    'product' => [
+        'name' => 'اسم المنتج',
+        'description' => 'الوصف',
+        'image' => 'الصورة',
+        'store' => 'المتجر',
+        'category' => 'الفئة',
+        'price' => 'السعر',
+        'compare_price' => 'سعر المقارنة',
+        'quantity' => 'الكمية',
+        'is_active' => 'نشط',
+        'is_accepted' => 'مقبول',
+        'accepted' => 'مقبول',
+        'pending' => 'في الانتظار',
+    ],
+
+    'customer' => [
+        'name' => 'اسم العميل',
+        'mobile' => 'رقم الجوال',
+        'is_active' => 'نشط',
+        'mobile_verified' => 'الجوال موثق',
+        'mobile_type' => 'نوع الجوال',
+        'timezone' => 'المنطقة الزمنية',
+        'last_seen_at' => 'آخر ظهور',
+        'verified' => 'موثق',
+        'unverified' => 'غير موثق',
     ],
 ];
