@@ -10,8 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('admins', function (Blueprint $table) {
-            $table->boolean('is_active')->default(true)->after('email');
+        Schema::create('additions', function (Blueprint $table) {
+            $table->id();
+            $table->json('name');
+            $table->foreignId('store_id')->constrained('stores');
+            $table->boolean('is_active')->default(true);
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -20,8 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('admins', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('additions');
     }
 };

@@ -10,13 +10,21 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-
-            $table->json('name');
-            $table->json('description')->nullable();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
 
             $table->boolean('is_active')->default(true);
+
+            $table->text('two_factor_secret')
+                ->nullable();
+            $table->text('two_factor_recovery_codes')
+                ->nullable();
+            $table->timestamp('two_factor_confirmed_at')
+                ->nullable();
+            $table->rememberToken();
 
             $table->softDeletes();
             $table->timestamps();
@@ -28,6 +36,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('admins');
     }
 };

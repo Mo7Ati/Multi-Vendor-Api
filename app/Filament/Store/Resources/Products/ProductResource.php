@@ -5,6 +5,7 @@ namespace App\Filament\Store\Resources\Products;
 use App\Filament\Store\Resources\Products\Pages\CreateProduct;
 use App\Filament\Store\Resources\Products\Pages\EditProduct;
 use App\Filament\Store\Resources\Products\Pages\ListProducts;
+use App\Filament\Store\Resources\Products\Pages\ViewProduct;
 use App\Filament\Store\Resources\Products\Schemas\ProductForm;
 use App\Filament\Store\Resources\Products\Tables\ProductsTable;
 use App\Models\Product;
@@ -42,6 +43,7 @@ class ProductResource extends Resource
         return [
             'index' => ListProducts::route('/'),
             'create' => CreateProduct::route('/create'),
+            'view' => ViewProduct::route('/{record}'),
             'edit' => EditProduct::route('/{record}/edit'),
         ];
     }

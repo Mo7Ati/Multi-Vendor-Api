@@ -25,6 +25,9 @@ class StorePanelProvider extends PanelProvider
     {
         return $panel
             ->id('store')
+            ->spa()
+            ->authGuard('store')
+            ->login()
             ->path('store')
             ->colors([
                 'primary' => Color::Amber,

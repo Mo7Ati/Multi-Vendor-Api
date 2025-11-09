@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -22,12 +23,11 @@ class Store extends Authenticatable implements HasMedia
         'keywords',
         'social_media',
         'email',
-        'delivery_time',
         'phone',
         'password',
-        'is_active',
-        'rate',
         'category_id',
+        'delivery_time',
+        'is_active',
     ];
 
     protected $casts = [
@@ -41,13 +41,30 @@ class Store extends Authenticatable implements HasMedia
 
     public array $translatable = ['name', 'description', 'address', 'keywords'];
 
-    public function products()
+    public function setPasswordAttribute($value)
     {
-        return $this->hasMany(Product::class, 'store_id', 'id');
+        $this->attributes['password'] = Hash::make($value);
     }
+
     public function category()
     {
         return $this->belongsTo(StoreCategory::class);
+    }
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+    public function additions()
+    {
+        return $this->hasMany(Addition::class);
+    }
+    public function options()
+    {
+        return $this->hasMany(Option::class);
+    }
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
     }
 
 }

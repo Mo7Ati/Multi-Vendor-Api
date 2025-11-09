@@ -17,16 +17,15 @@ return new class extends Migration {
             $table->json('description')->nullable();
             $table->json('keywords')->nullable();
 
-
             $table->json('social_media')->nullable();
 
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('password');
+            $table->foreignId('category_id')->nullable()->constrained('store_categories');
 
             $table->integer('delivery_time');
             $table->boolean('is_active')->default(true);
-            $table->float('rate')->default(0);
 
 
             $table->text('two_factor_secret')

@@ -23,8 +23,8 @@ return new class extends Migration {
 
             $table->double('total');
             $table->double('total_items_amount');
-            $table->double('total_amount');
             $table->double('delivery_amount')->default(0);
+            $table->double('tax_amount')->default(0);
 
             $table->text('notes')->nullable();
             $table->timestamps();

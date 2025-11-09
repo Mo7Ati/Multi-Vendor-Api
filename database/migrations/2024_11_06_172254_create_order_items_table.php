@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->foreignId('product_id')->nullable()->constrained('products')->nullOnDelete();
             $table->unsignedSmallInteger('quantity')->default(1);
             $table->float('price');
-            $table->string('product_name');
+            $table->json('product_data');
             $table->unique(['order_id', 'product_id']);
         });
     }

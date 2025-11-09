@@ -16,8 +16,8 @@ class Order extends Model
         'store_id',
         'total',
         'total_items_amount',
-        'total_amount',
         'delivery_amount',
+        'tax_amount',
         'notes',
     ];
 
@@ -25,8 +25,8 @@ class Order extends Model
         'customer_data' => 'array',
         'total' => 'float',
         'total_items_amount' => 'float',
-        'total_amount' => 'float',
         'delivery_amount' => 'float',
+        'tax_amount' => 'float',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];

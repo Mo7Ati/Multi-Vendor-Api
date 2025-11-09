@@ -41,11 +41,11 @@ class AppServiceProvider extends ServiceProvider
             $component
                 // locales labels
                 ->localesLabels([
-                    'ar' => __('general.locales.ar'),
-                    'en' => __('general.locales.en')
+                    'en' => __('general.locales.en'),
+                    'ar' => __('general.locales.ar')
                 ])
                 // default locales
-                ->locales(['ar', 'en']);
+                ->locales(['en', 'ar']);
         });
     }
 }

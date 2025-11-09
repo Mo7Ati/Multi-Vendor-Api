@@ -16,12 +16,6 @@ class CustomerResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUsers;
 
-    protected static ?string $navigationLabel = 'Customers';
-
-    protected static ?string $modelLabel = 'Customer';
-
-    protected static ?string $pluralModelLabel = 'Customers';
-
     protected static ?int $navigationSort = 5;
 
     public static function table(Table $table): Table
@@ -38,7 +32,7 @@ class CustomerResource extends Resource
 
     public static function getNavigationGroup(): string
     {
-        return __('general.nav_groups.store_management');
+        return __('general.nav_groups.management');
     }
 
     public static function getNavigationLabel(): string

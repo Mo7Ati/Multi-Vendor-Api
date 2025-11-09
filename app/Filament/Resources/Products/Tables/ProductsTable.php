@@ -67,13 +67,13 @@ class ProductsTable
                 TextColumn::make('created_at')
                     ->label(__('forms.common.created_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
 
                 TextColumn::make('updated_at')
                     ->label(__('forms.common.updated_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
             ])
             ->filters([
@@ -96,6 +96,11 @@ class ProductsTable
                 SelectFilter::make('store_id')
                     ->label(__('forms.product.store'))
                     ->relationship('store', 'name')
+                    ->searchable(),
+
+                SelectFilter::make('category_id')
+                    ->label(__('forms.product.category'))
+                    ->relationship('category', 'name')
                     ->searchable(),
             ])
             ->defaultSort('created_at', 'desc');

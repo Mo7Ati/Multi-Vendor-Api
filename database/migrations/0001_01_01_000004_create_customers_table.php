@@ -10,15 +10,20 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('avatar')->nullable();
+            $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            // $table->string('phone_number')->unique();
-            // $table->boolean('super_admin')->default(false);
-            // $table->enum('status', ['active', 'inactive'])->default('active');
+
+            $table->string('phone_number')->nullable()->unique();
+
+            $table->json('location')->nullable();
+            $table->string('fcm_token')->nullable();
+
+            $table->timestamp('last_seen_at')->nullable();
+
+            $table->boolean('is_active')->default(true);
 
             $table->text('two_factor_secret')
                 ->nullable();
@@ -38,6 +43,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('customers');
     }
 };

@@ -8,22 +8,21 @@ class Customer extends Model
 {
     protected $fillable = [
         'name',
-        'mobile',
+        'email',
+        'password',
+        'phone_number',
         'is_active',
-        'mobile_verified',
-        'about_mobile',
-        'mobile_type',
-        'location',
         'fcm_token',
         'timezone',
         'last_seen_at',
+        'two_factor_secret',
+        'two_factor_recovery_codes',
+        'two_factor_confirmed_at',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
-        'mobile_verified' => 'boolean',
-        'about_mobile' => 'array',
-        'location' => 'array',
         'last_seen_at' => 'datetime',
     ];
+
 }

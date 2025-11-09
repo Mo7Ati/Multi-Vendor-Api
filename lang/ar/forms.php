@@ -2,17 +2,23 @@
 
 return [
     'common' => [
-        'personal_information' => 'المعلومات الشخصية',
+        'basic_information' => 'المعلومات العامة',
+        'status' => 'الحالة',
         'name' => 'الاسم',
         'email' => 'البريد الإلكتروني',
         'password' => 'كلمة المرور',
-        'is_active' => 'الحالة',
+        'is_active' => 'نشط',
         'active' => 'نشط',
         'inactive' => 'غير نشط',
         'all' => 'الكل',
         'created_at' => 'تاريخ الإنشاء',
         'updated_at' => 'تاريخ التحديث',
         'id' => 'المعرف',
+        'phone_number' => 'رقم الهاتف',
+    ],
+
+    'admins' => [
+        'password_helper_text' => 'اترك الحقل فارغا للحفظ بنفس كلمة المرور',
     ],
 
     'store' => [
@@ -55,10 +61,9 @@ return [
     'order' => [
         'customer' => 'العميل',
         'store' => 'المتجر',
-        'status' => 'الحالة',
+        'status' => 'حالة الطلب',
         'payment_status' => 'حالة الدفع',
         'total_amount' => 'المبلغ الإجمالي',
-        'delivery_amount' => 'رسوم التوصيل',
         'statuses' => [
             'pending' => 'في الانتظار',
             'processing' => 'قيد المعالجة',
@@ -89,15 +94,26 @@ return [
         'pending' => 'في الانتظار',
     ],
 
-    'customer' => [
-        'name' => 'اسم العميل',
-        'mobile' => 'رقم الجوال',
+    'addition' => [
+        'basic_information' => 'المعلومات الأساسية',
+        'name' => 'اسم الإضافة',
         'is_active' => 'نشط',
-        'mobile_verified' => 'الجوال موثق',
-        'mobile_type' => 'نوع الجوال',
-        'timezone' => 'المنطقة الزمنية',
-        'last_seen_at' => 'آخر ظهور',
-        'verified' => 'موثق',
-        'unverified' => 'غير موثق',
+        'products_count' => 'عدد المنتجات',
+    ],
+
+    'option' => [
+        'basic_information' => 'المعلومات الأساسية',
+        'name' => 'اسم الخيار',
+        'is_active' => 'نشط',
+        'products_count' => 'عدد المنتجات',
+    ],
+
+    'category' => [
+        'basic_information' => 'المعلومات الأساسية',
+        'name' => 'اسم الفئة',
+        'description' => 'الوصف',
+        'image' => 'الصورة',
+        'is_active' => 'نشط',
+        'products_count' => 'عدد المنتجات',
     ],
 ];

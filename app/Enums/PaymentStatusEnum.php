@@ -12,10 +12,16 @@ enum PaymentStatusEnum: string
     public function label(): string
     {
         return match ($this) {
-            self::Unpaid => 'Unpaid',
-            self::Paid => 'Paid',
-            self::Failed => 'Failed',
-            self::Refunded => 'Refunded',
+            self::Unpaid => __('general.payment_statuses.unpaid'),
+            self::Paid => __('general.payment_statuses.paid'),
+            self::Failed => __('general.payment_statuses.failed'),
+            self::Refunded => __('general.payment_statuses.refunded'),
         };
+    }
+    public static function getAll(): array
+    {
+        return collect(self::cases())
+            ->mapWithKeys(fn($case) => [$case->value => $case->label()])
+            ->toArray();
     }
 }

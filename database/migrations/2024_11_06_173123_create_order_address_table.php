@@ -21,7 +21,6 @@ return new class extends Migration {
             $table->string('city');
             $table->string('state')->nullable();
             $table->string('postal_code')->nullable();
-
         });
     }
 

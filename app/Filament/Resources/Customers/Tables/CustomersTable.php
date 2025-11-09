@@ -16,68 +16,42 @@ class CustomersTable
             ->columns([
                 TextColumn::make('id')
                     ->label(__('forms.common.id'))
-                    ->sortable()
-                    ->searchable(),
+                    ->sortable(),
 
                 TextColumn::make('name')
-                    ->label(__('forms.customer.name'))
-                    ->sortable()
+                    ->label(__('forms.common.name'))
                     ->searchable(),
 
-                TextColumn::make('mobile')
-                    ->label(__('forms.customer.mobile'))
-                    ->sortable()
-                    ->searchable()
-                    ->copyable(),
+                TextColumn::make('email')
+                    ->label(__('forms.common.email'))
+                    ->searchable(),
+
+                TextColumn::make('phone_number')
+                    ->label(__('forms.common.phone_number'))
+                    ->searchable(),
 
                 ToggleColumn::make('is_active')
-                    ->label(__('forms.customer.is_active')),
+                    ->label(__('forms.common.is_active')),
 
-                ToggleColumn::make('mobile_verified')
-                    ->label(__('forms.customer.mobile_verified')),
-
-                TextColumn::make('mobile_type')
-                    ->label(__('forms.customer.mobile_type'))
-                    ->sortable()
-                    ->toggleable(),
-
-                TextColumn::make('timezone')
-                    ->label(__('forms.customer.timezone'))
-                    ->sortable()
-                    ->toggleable(),
-
-                TextColumn::make('last_seen_at')
-                    ->label(__('forms.customer.last_seen_at'))
-                    ->sortable()
-                    ->dateTime()
-                    ->toggleable(),
 
                 TextColumn::make('created_at')
                     ->label(__('forms.common.created_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
 
                 TextColumn::make('updated_at')
                     ->label(__('forms.common.updated_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
             ])
             ->filters([
                 TernaryFilter::make('is_active')
-                    ->label(__('forms.customer.is_active'))
+                    ->label(__('forms.common.is_active'))
                     ->options([
                         'true' => __('forms.common.active'),
                         'false' => __('forms.common.inactive'),
-                        'null' => __('forms.common.all'),
-                    ]),
-
-                TernaryFilter::make('mobile_verified')
-                    ->label(__('forms.customer.mobile_verified'))
-                    ->options([
-                        'true' => __('forms.customer.verified'),
-                        'false' => __('forms.customer.unverified'),
                         'null' => __('forms.common.all'),
                     ]),
             ])

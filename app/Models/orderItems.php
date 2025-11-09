@@ -12,8 +12,12 @@ class orderItems extends Pivot
     protected $table = 'order_items';
     public $timestamps = false;
     protected $fillable = [
-        'price' , 'quantity' , 'product_name' , 'order_id' , 'product_id'
+        'price' , 'quantity' , 'product_data' , 'order_id' , 'product_id'
     ] ;
+
+    protected $casts = [
+        'product_data' => 'array',
+    ];
 
     public function order()
     {

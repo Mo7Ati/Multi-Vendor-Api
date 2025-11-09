@@ -14,12 +14,18 @@ enum OrderStatusEnum: string
     public function label(): string
     {
         return match ($this) {
-            self::PENDING => 'Pending',
-            self::PREPARING => 'Preparing',
-            self::ON_THE_WAY => 'On The Way',
-            self::COMPLETED => 'Completed',
-            self::CANCELLED => 'Cancelled',
-            self::REJECTED => 'Rejected',
+            self::PENDING => __('general.order_statuses.pending'),
+            self::PREPARING => __('general.order_statuses.preparing'),
+            self::ON_THE_WAY => __('general.order_statuses.on_the_way'),
+            self::COMPLETED => __('general.order_statuses.completed'),
+            self::CANCELLED => __('general.order_statuses.cancelled'),
+            self::REJECTED => __('general.order_statuses.rejected'),
         };
+    }
+    public static function getAll(): array
+    {
+        return collect(self::cases())
+            ->mapWithKeys(fn($case) => [$case->value => $case->label()])
+            ->toArray();
     }
 }

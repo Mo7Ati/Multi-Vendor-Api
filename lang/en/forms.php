@@ -2,7 +2,8 @@
 
 return [
     'common' => [
-        'personal_information' => 'Personal Information',
+        'basic_information' => 'Basic Information',
+        'status' => 'Status',
         'name' => 'Name',
         'email' => 'Email',
         'password' => 'Password',
@@ -13,10 +14,14 @@ return [
         'created_at' => 'Created At',
         'updated_at' => 'Updated At',
         'id' => 'ID',
+        'phone_number' => 'Phone Number',
+    ],
+
+    'admins' => [
+        'password_helper_text' => 'Leave blank to keep the current password',
     ],
 
     'store' => [
-        'basic_information' => 'Basic Information',
         'name' => 'Store Name',
         'email' => 'Store Email',
         'phone' => 'Phone Number',
@@ -44,7 +49,6 @@ return [
     ],
 
     'store_category' => [
-        'basic_information' => 'Basic Information',
         'name' => 'Category Name',
         'description' => 'Description',
         'stores_count' => 'Stores Count',
@@ -53,7 +57,7 @@ return [
     'order' => [
         'customer' => 'Customer',
         'store' => 'Store',
-        'status' => 'Status',
+        'status' => 'Order Status',
         'payment_status' => 'Payment Status',
         'total_amount' => 'Total Amount',
         'delivery_amount' => 'Delivery Amount',
@@ -87,15 +91,27 @@ return [
         'pending' => 'Pending',
     ],
 
-    'customer' => [
-        'name' => 'Customer Name',
-        'mobile' => 'Mobile',
+
+    'addition' => [
+        'basic_information' => 'Basic Information',
+        'name' => 'Addition Name',
         'is_active' => 'Active',
-        'mobile_verified' => 'Mobile Verified',
-        'mobile_type' => 'Mobile Type',
-        'timezone' => 'Timezone',
-        'last_seen_at' => 'Last Seen',
-        'verified' => 'Verified',
-        'unverified' => 'Unverified',
+        'products_count' => 'Products Count',
+    ],
+
+    'option' => [
+        'basic_information' => 'Basic Information',
+        'name' => 'Option Name',
+        'is_active' => 'Active',
+        'products_count' => 'Products Count',
+    ],
+
+    'category' => [
+        'basic_information' => 'Basic Information',
+        'name' => 'Category Name',
+        'description' => 'Description',
+        'image' => 'Image',
+        'is_active' => 'Active',
+        'products_count' => 'Products Count',
     ],
 ];

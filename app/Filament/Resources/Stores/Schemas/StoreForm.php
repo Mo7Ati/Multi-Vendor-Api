@@ -2,11 +2,10 @@
 
 namespace App\Filament\Resources\Stores\Schemas;
 
+use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
 use App\Models\StoreCategory;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
@@ -21,22 +20,23 @@ class StoreForm
         return $schema
             ->components([
                 Group::make([
-                    Section::make(__('forms.store.basic_information'))
+                    Section::make(__('forms.common.basic_information'))
                         ->schema([
-                            TextInput::make('name')
-                                ->label(__('forms.store.name'))
-                                ->required()
-                                ->maxLength(255)
-                                ->translatableTabs(),
+                            TranslatableTabs::make()
+                                ->label(__('forms.common.basic_information'))
+                                ->schema([
+                                    TextInput::make('name')
+                                        ->label(__('forms.common.name'))
+                                        ->required()
+                                        ->maxLength(255),
 
-                            Textarea::make('description')
-                                ->label(__('forms.store.description'))
-                                ->rows(4)
-                                ->translatableTabs(),
+                                    Textarea::make('description')
+                                        ->label(__('forms.store.description'))
+                                        ->rows(4),
 
-                            TextInput::make('address')
-                                ->label(__('forms.store.address'))
-                                ->translatableTabs(),
+                                    TextInput::make('address')
+                                        ->label(__('forms.store.address')),
+                                ]),
                         ]),
                 ]),
 
@@ -62,12 +62,13 @@ class StoreForm
                             Select::make('category_id')
                                 ->label(__('forms.store.category'))
                                 ->options(StoreCategory::all()->pluck('name', 'id'))
-                                ->searchable()
-                                ->required(),
+                                ->searchable(),
 
                             TextInput::make('phone')
                                 ->label(__('forms.store.phone'))
                                 ->tel()
+                                ->required()
+                                ->unique(ignoreRecord: true)
                                 ->maxLength(20),
                         ]),
 
@@ -76,32 +77,15 @@ class StoreForm
                         ->schema([
                             TextInput::make('delivery_time')
                                 ->label(__('forms.store.delivery_time'))
-                                ->maxLength(255),
+                                ->numeric()
+                                ->required(),
 
                             Toggle::make('is_active')
                                 ->label(__('forms.store.is_active'))
                                 ->required()
                                 ->default(true),
                         ]),
-
                 ]),
-
-                // Section::make(__('forms.store.social_media'))
-                //     ->schema([
-                //         KeyValue::make('social_media')
-                //             ->label(__('forms.store.social_media'))
-                //             ->keyLabel(__('forms.store.platform'))
-                //             ->valueLabel(__('forms.store.url'))
-                //             ->addActionLabel(__('forms.store.add_social_media')),
-                //     ])->columnSpanFull(),
-
-                Section::make(__('forms.store.media'))
-                    ->schema([
-                        SpatieMediaLibraryFileUpload::make('logo')
-                            ->collection('stores-logo')
-                            ->label(__('forms.store.logo'))
-                            ->image(),
-                    ])->columnSpanFull(),
             ]);
     }
 }

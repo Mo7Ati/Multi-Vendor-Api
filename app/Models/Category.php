@@ -15,6 +15,7 @@ class Category extends Model implements HasMedia
     use HasFactory, InteractsWithMedia, HasTranslations;
     protected $fillable = [
         'name',
+        'store_id',
         'description',
         'is_active',
     ];
@@ -25,6 +26,12 @@ class Category extends Model implements HasMedia
         'image_url',
     ];
 
+    protected static function booted()
+    {
+        static::creating(function ($model) {
+            $model->store_id = auth()->guard('store')->id();
+        });
+    }
     protected function casts(): array
     {
         return [
@@ -32,12 +39,6 @@ class Category extends Model implements HasMedia
             'description' => 'array',
         ];
     }
-    public function parent()
-    {
-        return $this->belongsTo(Category::class, 'parent_id', 'id');
-
-    }
-
     public function products()
     {
         return $this->hasMany(Product::class, 'category_id', 'id');

@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Orders\Tables;
 
+use App\Enums\OrderStatusEnum;
+use App\Enums\PaymentStatusEnum;
 use App\Models\Order;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -20,37 +22,34 @@ class OrdersTable
 
                 TextColumn::make('customer.name')
                     ->label(__('forms.order.customer'))
-                    ->sortable()
                     ->searchable(),
 
                 TextColumn::make('store.name')
                     ->label(__('forms.order.store'))
-                    ->sortable()
                     ->searchable()
                     ->translateLabel(),
 
                 TextColumn::make('status')
                     ->label(__('forms.order.status'))
-                    ->sortable()
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'pending' => 'warning',
-                        'processing' => 'info',
-                        'shipped' => 'primary',
-                        'delivered' => 'success',
-                        'cancelled' => 'danger',
-                        default => 'gray',
+                    ->color(fn(string $state): string => match ($state) {
+                        OrderStatusEnum::PENDING->value => 'warning',
+                        OrderStatusEnum::PREPARING->value => 'info',
+                        OrderStatusEnum::ON_THE_WAY->value => 'primary',
+                        OrderStatusEnum::COMPLETED->value => 'success',
+                        OrderStatusEnum::CANCELLED->value => 'danger',
+                        OrderStatusEnum::REJECTED->value => 'gray',
                     }),
 
                 TextColumn::make('payment_status')
                     ->label(__('forms.order.payment_status'))
                     ->sortable()
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'pending' => 'warning',
-                        'paid' => 'success',
-                        'failed' => 'danger',
-                        'refunded' => 'info',
+                    ->color(fn(string $state): string => match ($state) {
+                        PaymentStatusEnum::Unpaid->value => 'warning',
+                        PaymentStatusEnum::Paid->value => 'success',
+                        PaymentStatusEnum::Failed->value => 'danger',
+                        PaymentStatusEnum::Refunded->value => 'info',
                         default => 'gray',
                     }),
 
@@ -59,43 +58,27 @@ class OrdersTable
                     ->sortable()
                     ->money('USD'),
 
-                TextColumn::make('delivery_amount')
-                    ->label(__('forms.order.delivery_amount'))
-                    ->sortable()
-                    ->money('USD')
-                    ->toggleable(),
 
                 TextColumn::make('created_at')
                     ->label(__('forms.common.created_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
 
                 TextColumn::make('updated_at')
                     ->label(__('forms.common.updated_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
             ])
             ->filters([
                 SelectFilter::make('status')
                     ->label(__('forms.order.status'))
-                    ->options([
-                        'pending' => __('forms.order.statuses.pending'),
-                        'processing' => __('forms.order.statuses.processing'),
-                        'shipped' => __('forms.order.statuses.shipped'),
-                        'delivered' => __('forms.order.statuses.delivered'),
-                        'cancelled' => __('forms.order.statuses.cancelled'),
-                    ]),
+                    ->options(OrderStatusEnum::getAll()),
 
                 SelectFilter::make('payment_status')
                     ->label(__('forms.order.payment_status'))
-                    ->options([
-                        'pending' => __('forms.order.payment_statuses.pending'),
-                        'paid' => __('forms.order.payment_statuses.paid'),
-                        'failed' => __('forms.order.payment_statuses.failed'),
-                        'refunded' => __('forms.order.payment_statuses.refunded'),
-                    ]),
+                    ->options(PaymentStatusEnum::getAll()),
             ])
             ->defaultSort('created_at', 'desc');
     }

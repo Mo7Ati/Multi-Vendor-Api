@@ -16,7 +16,7 @@ class AdminForm
         return $schema
             ->components([
                 Group::make([
-                    Section::make(__('forms.common.personal_information'))
+                    Section::make(__('forms.common.basic_information'))
                         ->schema([
                             TextInput::make('name')
                                 ->label(__('forms.common.name'))
@@ -26,13 +26,16 @@ class AdminForm
                             TextInput::make('email')
                                 ->label(__('forms.common.email'))
                                 ->email()
+                                ->unique(ignoreRecord: true)
                                 ->required()
                                 ->maxLength(255),
 
                             TextInput::make('password')
                                 ->label(__('forms.common.password'))
-                                ->required()
+                                ->required(fn(string $context): bool => $context === 'create')
                                 ->password()
+                                ->helperText(__('forms.admins.password_helper_text'))
+                                ->dehydrated(fn($state) => filled($state))
                                 ->maxLength(255),
                         ]),
                 ]),

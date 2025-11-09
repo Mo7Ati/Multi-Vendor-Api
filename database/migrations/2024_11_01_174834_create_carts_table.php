@@ -17,8 +17,6 @@ return new class extends Migration {
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->unsignedSmallInteger('quantity')->default(1);
             $table->timestamps();
-            
-
         });
     }
 

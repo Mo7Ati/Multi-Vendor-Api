@@ -39,12 +39,14 @@ class AdminsTable
                 TextColumn::make('created_at')
                     ->label(__('forms.common.created_at'))
                     ->sortable()
+                    ->dateTime('d-m-Y')
                     ->toggleable()
                     ->searchable(),
 
                 TextColumn::make('updated_at')
                     ->label(__('forms.common.updated_at'))
                     ->sortable()
+                    ->dateTime('d-m-Y')
                     ->toggleable()
                     ->searchable(),
             ])

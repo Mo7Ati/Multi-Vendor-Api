@@ -47,4 +47,22 @@ class AdminResource extends Resource
             'edit' => EditAdmin::route('/{record}/edit'),
         ];
     }
+    public static function getNavigationGroup(): string
+    {
+        return __('general.nav_groups.management');
+    }
+    public static function getNavigationLabel(): string
+    {
+        return __('general.nav_labels.admins');
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return __('general.labels.admins');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('general.labels.admin');
+    }
 }

@@ -27,11 +27,11 @@ class ViewAdmin extends ViewRecord
     {
         return $schema
             ->components([
-                Section::make(__('forms.common.personal_information'))
+                Section::make(__('forms.common.basic_information'))
                     ->components([
                         TextEntry::make('name')
                             ->label(__('forms.common.name')),
-                            
+
                         TextEntry::make('email')
                             ->label(__('forms.common.email')),
 
