@@ -19,6 +19,9 @@ return new class extends Migration {
             $table->foreignId('customer_id')->constrained('customers');
             $table->json('customer_data');
 
+            $table->foreignId('address_id')->constrained('addresses');
+            $table->json('address_data');
+
             $table->foreignId('store_id')->constrained('stores');
 
             $table->double('total');

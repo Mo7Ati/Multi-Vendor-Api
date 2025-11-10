@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
             $table->foreignId('product_id')->nullable()->constrained('products')->nullOnDelete();
             $table->unsignedSmallInteger('quantity')->default(1);
-            $table->float('price');
+            $table->float('unit_price');
             $table->json('product_data');
             $table->unique(['order_id', 'product_id']);
         });

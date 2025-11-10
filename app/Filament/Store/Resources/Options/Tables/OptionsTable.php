@@ -23,34 +23,36 @@ class OptionsTable
                     ->searchable(),
 
                 TextColumn::make('name')
-                    ->label(__('forms.option.name'))
+                    ->label(__('forms.common.name'))
                     ->sortable()
                     ->searchable()
                     ->translateLabel(),
 
-                ToggleColumn::make('is_active')
-                    ->label(__('forms.option.is_active')),
+
 
                 TextColumn::make('products_count')
                     ->label(__('forms.option.products_count'))
                     ->counts('products')
                     ->sortable(),
 
+                ToggleColumn::make('is_active')
+                    ->label(__('forms.common.is_active')),
+
                 TextColumn::make('created_at')
                     ->label(__('forms.common.created_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
 
                 TextColumn::make('updated_at')
                     ->label(__('forms.common.updated_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
             ])
             ->filters([
                 TernaryFilter::make('is_active')
-                    ->label(__('forms.option.is_active'))
+                    ->label(__('forms.common.is_active'))
                     ->options([
                         'true' => __('forms.common.active'),
                         'false' => __('forms.common.inactive'),

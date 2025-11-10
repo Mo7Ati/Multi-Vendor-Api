@@ -12,8 +12,6 @@ class Customer extends Model
         'password',
         'phone_number',
         'is_active',
-        'fcm_token',
-        'timezone',
         'last_seen_at',
         'two_factor_secret',
         'two_factor_recovery_codes',

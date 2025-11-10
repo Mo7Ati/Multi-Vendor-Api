@@ -13,7 +13,10 @@ class Order extends Model
         'cancelled_reason',
         'customer_id',
         'customer_data',
+        'cancelled_reason',
         'store_id',
+        'address_id',
+        'address_data',
         'total',
         'total_items_amount',
         'delivery_amount',
@@ -23,6 +26,7 @@ class Order extends Model
 
     protected $casts = [
         'customer_data' => 'array',
+        'address_data' => 'array',
         'total' => 'float',
         'total_items_amount' => 'float',
         'delivery_amount' => 'float',
@@ -50,8 +54,8 @@ class Order extends Model
             ->withPivot('quantity', 'price', 'product_name')
         ;
     }
-    public function addresses()
+    public function address()
     {
-        return $this->hasMany(orderAddress::class);
+        return $this->belongsTo(Address::class);
     }
 }

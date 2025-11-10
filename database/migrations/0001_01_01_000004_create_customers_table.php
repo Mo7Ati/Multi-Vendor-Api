@@ -15,14 +15,9 @@ return new class extends Migration {
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-
             $table->string('phone_number')->nullable()->unique();
 
-            $table->json('location')->nullable();
-            $table->string('fcm_token')->nullable();
-
             $table->timestamp('last_seen_at')->nullable();
-
             $table->boolean('is_active')->default(true);
 
             $table->text('two_factor_secret')

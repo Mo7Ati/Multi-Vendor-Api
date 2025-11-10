@@ -18,17 +18,17 @@ class AdditionForm
                     Section::make(__('forms.common.basic_information'))
                         ->schema([
                             TextInput::make('name')
-                                ->label(__('forms.addition.name'))
+                                ->label(__('forms.common.name'))
                                 ->required()
                                 ->maxLength(255)
                                 ->translatableTabs(),
-
-
                         ]),
-                    Section::make(__('forms.addition.status'))
+                ]),
+                Group::make([
+                    Section::make(__('forms.common.status'))
                         ->schema([
                             Toggle::make('is_active')
-                                ->label(__('forms.addition.is_active'))
+                                ->label(__('forms.common.is_active'))
                                 ->required()
                                 ->default(true),
                         ]),

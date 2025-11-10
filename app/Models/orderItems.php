@@ -7,16 +7,20 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class orderItems extends Pivot
 {
-
-
     protected $table = 'order_items';
     public $timestamps = false;
     protected $fillable = [
-        'price' , 'quantity' , 'product_data' , 'order_id' , 'product_id'
-    ] ;
+        'unit_price',
+        'quantity',
+        'product_data',
+        'order_id',
+        'product_id'
+    ];
 
     protected $casts = [
         'product_data' => 'array',
+        'unit_price' => 'float',
+        'quantity' => 'int',
     ];
 
     public function order()

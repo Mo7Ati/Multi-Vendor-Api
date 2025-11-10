@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('my_stores', function (Blueprint $table) {
+        Schema::create('my_favorites', function (Blueprint $table) {
             $table->id();
             $table->morphs('model');
             $table->foreignId('customer_id')->constrained('customers');

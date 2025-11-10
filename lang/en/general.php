@@ -5,6 +5,7 @@ return [
     'nav_groups' => [
         'management' => 'Management',
         'store_management' => 'Stores Management',
+        'products_management' => 'Products Management',
     ],
     'nav_labels' => [
         'store_categories' => 'Stores Categories',

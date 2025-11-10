@@ -15,6 +15,10 @@ return [
         'updated_at' => 'Updated At',
         'id' => 'ID',
         'phone_number' => 'Phone Number',
+        'keywords' => 'Keywords',
+        'keywords_helper_text' => 'Enter the keywords that will be used to search for the Item',
+        'description' => 'Description',
+        'price' => 'Price',
     ],
 
     'admins' => [
@@ -89,6 +93,13 @@ return [
         'is_accepted' => 'Accepted',
         'accepted' => 'Accepted',
         'pending' => 'Pending',
+        'media' => 'Media',
+        'product_settings' => 'Product Settings',
+        'category_and_price' => 'Category and Price',
+        'options' => 'Options',
+        'additions' => 'Additions',
+        'addition' => 'Addition',
+        'option' => 'Option',
     ],
 
 

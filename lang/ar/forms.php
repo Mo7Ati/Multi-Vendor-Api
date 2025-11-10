@@ -15,6 +15,10 @@ return [
         'updated_at' => 'تاريخ التحديث',
         'id' => 'المعرف',
         'phone_number' => 'رقم الهاتف',
+        'keywords' => 'الكلمات المفتاحية',
+        'keywords_helper_text' => 'ادخل الكلمات المفتاحية التي سيتم استخدامها للبحث عن العنصر',
+        'description' => 'الوصف',
+        'price' => 'السعر',
     ],
 
     'admins' => [
@@ -86,12 +90,21 @@ return [
         'store' => 'المتجر',
         'category' => 'الفئة',
         'price' => 'السعر',
-        'compare_price' => 'سعر المقارنة',
+        'compare_price' => 'السعر قبل الخصم',
         'quantity' => 'الكمية',
         'is_active' => 'نشط',
         'is_accepted' => 'مقبول',
         'accepted' => 'مقبول',
         'pending' => 'في الانتظار',
+        'media' => 'الوسائط',
+        'product_settings' => 'إعدادات المنتج',
+        'category_and_price' => 'الفئة والسعر',
+        'options' => 'الخيارات',
+        'additions' => 'الإضافات',
+        'addition' => 'الإضافة',
+        'option' => 'الخيار',
+
+
     ],
 
     'addition' => [

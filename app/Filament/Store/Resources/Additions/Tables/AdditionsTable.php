@@ -23,29 +23,29 @@ class AdditionsTable
                     ->searchable(),
 
                 TextColumn::make('name')
-                    ->label(__('forms.addition.name'))
+                    ->label(__('forms.common.name'))
                     ->sortable()
                     ->searchable()
                     ->translateLabel(),
-
-                ToggleColumn::make('is_active')
-                    ->label(__('forms.addition.is_active')),
 
                 TextColumn::make('products_count')
                     ->label(__('forms.addition.products_count'))
                     ->counts('products')
                     ->sortable(),
 
+                ToggleColumn::make('is_active')
+                    ->label(__('forms.common.is_active')),
+
                 TextColumn::make('created_at')
                     ->label(__('forms.common.created_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
 
                 TextColumn::make('updated_at')
                     ->label(__('forms.common.updated_at'))
                     ->sortable()
-                    ->dateTime()
+                    ->dateTime('d-m-Y')
                     ->toggleable(),
             ])
             ->filters([

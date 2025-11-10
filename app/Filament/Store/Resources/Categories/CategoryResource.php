@@ -21,14 +21,6 @@ class CategoryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
 
-    protected static ?string $navigationLabel = 'Categories';
-
-    protected static ?string $modelLabel = 'Category';
-
-    protected static ?string $pluralModelLabel = 'Categories';
-
-    protected static ?int $navigationSort = 8;
-
     public static function form(Schema $schema): Schema
     {
         return CategoryForm::configure($schema);
@@ -51,7 +43,7 @@ class CategoryResource extends Resource
 
     public static function getNavigationGroup(): string
     {
-        return __('general.nav_groups.store_management');
+        return __('general.nav_groups.products_management');
     }
 
     public static function getNavigationLabel(): string
@@ -67,5 +59,9 @@ class CategoryResource extends Resource
     public static function getPluralModelLabel(): string
     {
         return __('general.labels.categories');
+    }
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }

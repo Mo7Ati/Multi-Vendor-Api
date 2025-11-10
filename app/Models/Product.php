@@ -37,6 +37,7 @@ class Product extends Model implements HasMedia
     {
         static::creating(function ($model) {
             $model->uuid = (string) Str::uuid();
+            $model->store_id = auth()->guard('store')->id();
         });
     }
 
@@ -54,11 +55,6 @@ class Product extends Model implements HasMedia
             ->withDefault(['name' => 'No Category']);
     }
 
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'product_tag', 'product_id', 'tag_id');
-    }
-
     public function Cart()
     {
         return $this->hasMany(Cart::class, 'product_id', 'id');
@@ -69,6 +65,15 @@ class Product extends Model implements HasMedia
         return $this->belongsToMany(Order::class, 'order_items', 'product_id', 'order_id');
     }
 
-  
+    public function additions()
+    {
+        return $this->belongsToMany(Addition::class, 'product_additions', 'product_id', 'addition_id')
+            ->withPivot('price');
+    }
 
+    public function options()
+    {
+        return $this->belongsToMany(Option::class, 'product_options', 'product_id', 'option_id')
+            ->withPivot('price');
+    }
 }

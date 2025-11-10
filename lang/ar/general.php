@@ -5,6 +5,7 @@ return [
     'nav_groups' => [
         'management' => 'الإدارة',
         'store_management' => 'إدارة المتاجر',
+        'products_management' => 'إدارة المنتجات',
     ],
     'nav_labels' => [
         'store_categories' => 'فئات المتاجر',

@@ -21,12 +21,6 @@ class OptionResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCog6Tooth;
 
-    protected static ?string $navigationLabel = 'Options';
-
-    protected static ?string $modelLabel = 'Option';
-
-    protected static ?string $pluralModelLabel = 'Options';
-
     protected static ?int $navigationSort = 7;
 
     public static function form(Schema $schema): Schema
@@ -51,7 +45,7 @@ class OptionResource extends Resource
 
     public static function getNavigationGroup(): string
     {
-        return __('general.nav_groups.store_management');
+        return __('general.nav_groups.products_management');
     }
 
     public static function getNavigationLabel(): string
@@ -67,5 +61,9 @@ class OptionResource extends Resource
     public static function getPluralModelLabel(): string
     {
         return __('general.labels.options');
+    }
+    public static function getNavigationBadge(): ?string
+    {
+        return self::getModel()::count();
     }
 }

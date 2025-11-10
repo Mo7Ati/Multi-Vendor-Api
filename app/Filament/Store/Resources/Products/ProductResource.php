@@ -47,4 +47,29 @@ class ProductResource extends Resource
             'edit' => EditProduct::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationGroup(): string
+    {
+        return __('general.nav_groups.products_management');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('general.nav_labels.products');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('general.labels.product');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('general.labels.products');
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 }

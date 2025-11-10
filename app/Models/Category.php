@@ -20,24 +20,19 @@ class Category extends Model implements HasMedia
         'is_active',
     ];
 
-    public array $translatable = ['name', 'description'];
 
-    protected $appends = [
-        'image_url',
+    protected $casts = [
+        'name' => 'array',
+        'description' => 'array',
     ];
+
+    public array $translatable = ['name', 'description'];
 
     protected static function booted()
     {
         static::creating(function ($model) {
             $model->store_id = auth()->guard('store')->id();
         });
-    }
-    protected function casts(): array
-    {
-        return [
-            'name' => 'array',
-            'description' => 'array',
-        ];
     }
     public function products()
     {
@@ -53,18 +48,5 @@ class Category extends Model implements HasMedia
         $query->when($filters['status'] ?? false, function ($query, $value) {
             $query->where('status', 'LIKE', "%$value%");
         });
-    }
-
-    public function getImageUrlAttribute()
-    {
-        $image = $this->getFirstMediaUrl('categories');
-
-        if (!$image) {
-            return 'https://www.incathlab.com/images/products/default_product.png';
-        }
-
-        if (Str::startsWith($image, ['http', 'https'])) {
-            return asset($image);
-        }
     }
 }
